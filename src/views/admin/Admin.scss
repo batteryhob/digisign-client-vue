@@ -1,0 +1,661 @@
+
+$color-fontgray: #73797d;
+$color-linegray: #363d45;
+$color-bordergray: #e9ecef;
+
+$color-angry: #ED5565;
+$color-disgust: #5D9CEC;
+$color-fear: #AC92EC;
+$color-happy: #EC87C0;
+$color-sad: #4FC1E9;
+$color-surprise: #FFCE54;
+$color-neutral: #48CFAD; 
+
+#admin{
+    position: relative;
+    width: 100%;
+    min-width: 1400px;
+    min-height: 100vh;
+    font-family: "Noto Sans KR";
+    overflow: hidden;
+    background-color: #252b32;
+
+    .header{
+        position: relative;
+        height: 60px;
+        line-height: 60px;
+        img{
+            margin-left: 30px;
+            width: 85px;
+            vertical-align: middle;
+        }
+    }
+
+    .content{
+        width: 1400px;
+        margin: 0 auto;
+        .screen{
+            display: flex;
+            width: 100%;
+            margin-bottom: 30px;
+            .left{
+                flex: 1;
+                .cam{
+                    position: relative;
+                    width: 640px;
+                    margin: 0 auto;
+                    .desc{
+                        p{
+                            font-size: 16px;
+                            color: $color-fontgray;
+                            span{
+                                margin-left: 10px;
+                                color: #fff;
+                                &.copy {
+                                    display: inline-block;
+                                    width: 25px;
+                                    height: 25px;                                    
+                                    background-color: $color-bordergray;
+                                    border-radius: 12px;
+                                    text-align: center;
+                                    color: $color-fontgray;
+                                    cursor: pointer;
+                                    &:hover{
+                                        color: #fff;
+                                        background-color: $color-fontgray;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .view{
+                        position: relative;
+                        #remoteVideo{
+                            display: inline-block;
+                            width: 640px;
+                            height: 480px;
+                            background-color: $color-linegray;
+                        }
+                        #facesquere{
+                            position: absolute;
+                            display: inline-block;
+                            top: 0px;
+                            left: 0px;
+                            width: 0px;
+                            height: 0px;            
+                            transition: all 1s ease-out;
+                            .squere{
+                                position: absolute;
+                                display: inline-block;
+                                width: 40px;
+                                height: 40px;
+                                box-sizing: border-box;
+                                border-style: solid;
+                                border-color: #48CFAD;
+                                &.upleft{
+                                    top: 0px;
+                                    left: 0px;
+                                    border-width: 3px 0px 0px 3px;
+                                }
+                                &.upright{
+                                    top: 0px;
+                                    right: 0px;
+                                    border-width: 3px 3px 0px 0px;
+                                }
+                                &.downleft{
+                                    bottom: 0px;
+                                    left: 0px;
+                                    border-width: 0px 0px 3px 3px;
+                                }
+                                &.downright{
+                                    bottom: 0px;
+                                    right: 0px;
+                                    border-width: 0px 3px 3px 0px;
+                                }
+                            }
+                            .age{
+                                position: absolute;
+                                top: -45px;
+                                left: 0px;
+                                color: #48CFAD;
+                                font-size: 14px;
+                            }
+                            #progress{
+                                position: absolute;
+                                bottom: -70px;                                
+                                .range{
+                                    position: relative;
+                                    margin-bottom: 20px;
+                                    transition: width 1s ease-in;
+                                    .bar {
+                                        position: relative;
+                                        width: 100%;
+                                        height: 8px;
+                                        margin-top: 8px;
+                                        display: block;
+                                        border-radius: 8px;
+                                        background: rgba($color: black, $alpha: .3);                                        
+                                        .value {
+                                            position: absolute;
+                                            width: 30%;
+                                            height: 100%;
+                                            border-radius: 8px;
+                                            background-color: $color-disgust;
+                                            transition: width 1s ease-in;
+                                        }                                       
+                                    }
+                                    .icon{
+                                        position: absolute;
+                                        top: -8px;
+                                        left: 0px;
+                                        display: inline-block;
+                                        width: 24px;
+                                        height: 24px;
+                                        line-height: 24px;
+                                        border-radius: 24px;
+                                        background-color: $color-disgust;
+                                        text-align: center;
+                                        font-size: 12px;
+                                        color: #fff;
+                                    }
+                                    &.false{
+                                        .bar {
+                                            background-color: $color-angry;
+                                        }
+                                        .icon{
+                                            background-color: $color-angry;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .connect {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%,-50%);
+                            font-size: 50px;
+                            color: $color-fontgray;
+                        }
+                        .recorddiv{
+                            position: absolute;
+                            top: 20px;
+                            right: 20px;
+                            display: inline-block;
+                            width: 30px;
+                            height: 30px;
+                            text-align: center;
+                            .record{
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                display: inline-block;
+                                width: 10px;
+                                height: 10px;
+                                background-color: red;
+                                border-radius: 100%;
+                            }                            
+                            .background{
+                              position: absolute;
+                              top: 50%;
+                              left: 50%;
+                              transform: translate(-50%, -50%);
+                              display: inline-block;
+                              width: 10px;
+                              height: 10px;
+                              background-color: red;
+                              border-radius: 100%;
+                              animation: recording 1s infinite;
+                              @keyframes recording {
+                                0%   {
+                                    width: 10px;
+                                    height: 10px;
+                                }
+                                100% {
+                                    width: 40px;
+                                    height: 40px;
+                                    opacity: 0;
+                                }
+                              }
+                            }
+                        }
+                    }                    
+                }
+            }
+            .right{
+                flex: 1;
+                .device{
+                    position: relative;
+                    width: 640px;
+                    margin: 0 auto;
+                    .desc{
+                        p{
+                            font-size: 16px;
+                            color: $color-fontgray;
+                            span{
+                                margin-left: 10px;
+                                color: #fff;
+                            }
+                        }
+                    }
+                    .view{
+                        position: relative;
+                        width: 640px;
+                        height: 480px;
+                        #remoteMedia{
+                            display: inline-block;
+                            width: 640px;
+                            height: 480px;
+                            background-color: $color-linegray;
+                        }
+                        .connect {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%,-50%);
+                            font-size: 50px;
+                            color: $color-fontgray;
+                        }
+                        .recorddiv{
+                            position: absolute;
+                            top: 20px;
+                            right: 20px;
+                            display: inline-block;
+                            width: 30px;
+                            height: 30px;
+                            text-align: center;
+                            .record{
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                display: inline-block;
+                                width: 10px;
+                                height: 10px;
+                                background-color: red;
+                                border-radius: 100%;
+                            }
+                            .background{
+                              position: absolute;
+                              top: 50%;
+                              left: 50%;
+                              transform: translate(-50%, -50%);
+                              display: inline-block;
+                              width: 10px;
+                              height: 10px;
+                              background-color: red;
+                              border-radius: 100%;
+                              animation: recording 1s infinite;
+                              @keyframes recording {
+                                0%   {
+                                    width: 10px;
+                                    height: 10px;
+                                }
+                                100% {
+                                    width: 40px;
+                                    height: 40px;
+                                    opacity: 0;
+                                }
+                              }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .infomation {
+            .timeline{
+                position: relative;
+                display: inline-block;
+                width: 100%;
+                height: 100px;
+                text-align: center;
+                .content{
+                    position: relative;
+                    display: inline-block;
+                    width: 100%;
+                    height: 100px;
+                    margin: 0 auto;
+                    .title{
+                        padding-left: 30px;
+                        font-size: 16px;
+                        text-align: left;
+                        color: $color-fontgray;
+                        span{
+                            margin-left: 10px;
+                            color: #fff;
+                        }
+                    }
+                    .graph{
+                        position: relative;
+                        top: 50%;
+                        width: 95%;
+                        margin: 0 auto;
+                        height: 3px;
+                        border-radius: 5px;
+                        background-color: $color-linegray;;
+                        .circle{
+                            position: absolute;
+                            top: -6px;
+                            //left: 10%;
+                            display: inline-block;
+                            width: 15px;
+                            height: 15px;
+                            box-sizing: border-box;
+                            border: 3px solid $color-linegray;;
+                            border-radius: 10px;
+                            background-color: #fff;
+                            transition: left .2s ease-in;
+                            .sub{
+                                position: absolute;
+                                top: 20px;
+                                left: -50px;
+                                //display: inline-block;
+                                width: 100px;
+                                //height: 60px;
+                                background-color: #fff;
+                                border: 1px solid #fff;
+                                border-radius: 10px;
+                                text-align: center;
+                            }
+                        }
+                        .bookmark {
+                            position: absolute;
+                            top: -12px;
+                            display: inline-block;
+                            width: 22px;
+                            height: 22px;
+                            line-height: 22px;
+                            font-size: 22px;
+                            text-align: center;
+                            border-radius: 24px;
+                            transition: left .2s ease-in;
+                            i {                         
+                                border-radius: 24px;
+                                &.fa-angry{
+                                    z-index: 1;
+                                    background-color: $color-bordergray;
+                                    color:  $color-angry;
+                                }
+                                &.fa-grimace{
+                                    z-index: 1;
+                                    background-color: $color-bordergray;
+                                    color: $color-disgust;
+                                }
+                                &.fa-flushed{
+                                    z-index: 1;
+                                    background-color: $color-bordergray;
+                                    color: $color-fear;
+                                }
+                                &.fa-laugh-beam{
+                                    z-index: 1;
+                                    background-color: $color-bordergray;
+                                    color: $color-happy;
+                                }
+                                &.fa-tired{
+                                    z-index: 1;
+                                    background-color: $color-bordergray;
+                                    color: $color-sad;
+                                }
+                                &.fa-surprise{
+                                    z-index: 1;
+                                    background-color: $color-bordergray;
+                                    color: $color-surprise;
+                                }
+                                &.fa-meh{
+                                    z-index: 1;
+                                    background-color: $color-bordergray;
+                                    color: $color-neutral;
+                                }
+                                &.fa-play{
+                                    z-index: 2;
+                                    color:  #00CF35;
+                                }
+                                &.fa-pause{
+                                    z-index: 2;
+                                    color: #F90D1B;
+                                }
+                                &.fa-check{
+                                    z-index: 2;
+                                    color: #FDE005;
+                                }
+                                &.fa-user-check{
+                                    z-index: 2;
+                                    color: #9D00FE;
+                                }
+                            }
+                            .tooltip{
+                                position: absolute;
+                                top: 30px;
+                                left: 0px;
+                                padding: 5px;
+                                display: inline-block;
+                                width: 100px;
+                                height: 40px;
+                                line-height: 20px;
+                                background-color: rgba($color: black, $alpha: .5);
+                                border-radius: 5px;
+                                text-align: left;
+                                font-size: 12px;
+                                color: #fff;
+                                opacity: 0;
+                                transition: opacity .2s ease-in;
+                                p {
+                                    margin: 0;
+                                }
+                            }
+                            &:hover{
+                                .tooltip{
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+        .bottom {
+            display: flex;
+            padding: 30px;
+            .left {
+                position: relative;
+                flex: 6;
+                box-sizing: border-box;
+                .title{
+                    span{
+                        font-size: 16px;
+                        color: #FFF;
+                        margin-left: 10px;
+                    }
+                    margin-bottom: 10px;
+                }
+                .legend {
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                    ul {
+                        display: flex;
+                        margin: 0;
+                        padding: 0;
+                        li {
+                            flex: 1;
+                            min-width: 70px;
+                            list-style:none;
+                            font-size: 12px;
+                            color: #fff;
+                            text-align: center;
+                            .point{
+                                display: inline-block;
+                                box-sizing: border-box;
+                                width: 12px;
+                                height: 12px;
+                                margin-left: 5px;
+                                margin-right: 5px;
+                                background-color: #FFF;
+                                border-radius: 10px;
+                                &.angry {
+                                    border: 3px solid $color-angry;  
+                                }
+                                &.disgust {
+                                    border: 3px solid $color-disgust;  
+                                }
+                                &.fear {
+                                    border: 3px solid $color-fear;  
+                                }
+                                &.happy {
+                                    border: 3px solid $color-happy;  
+                                }
+                                &.sad {
+                                    border: 3px solid $color-sad;  
+                                }
+                                &.surprise {
+                                    border: 3px solid $color-surprise;  
+                                }
+                                &.neutral {
+                                    border: 3px solid $color-neutral;  
+                                }                                
+                            }
+                        }
+                    }
+                }
+                .chart{
+                    padding: 5px;
+                }
+            }
+            .right {
+                flex: 4;
+                .title{
+                    span{
+                        font-size: 16px;
+                        color: #FFF;
+                        margin-left: 10px;
+                    }
+                    margin-bottom: 10px;
+                }
+                .buttons{
+                    position: relative;
+                    padding-left: 5px;
+                    ul{
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        width: 100%;
+                        min-height: 168px;
+                        margin: 0;
+                        padding: 0;
+                        list-style:none;
+                        background-color: #1d232a;
+                        li{
+                            text-align: center;
+                            color: #fff;
+                            font-size: 12px;
+                            padding: 5px;
+                            .button {
+                                display: inline-block;
+                                width: 74px;
+                                height: 74px;
+                                background-color: #282e36;
+                                transition: all .3s ease-in;
+                                cursor: pointer;
+                                i {
+                                    font-size: 18px;
+                                }
+                                &.etc{
+                                    background-color: $color-linegray;
+                                }
+                                &:hover{
+                                    background-color: $color-fontgray;
+                                }
+                            }
+                        }
+                    }
+                }                
+            }
+        }
+        .replay{
+            display: flex;
+            width: 100%;
+            margin-bottom: 90px;
+            .left{
+                flex: 1;
+                .cam{
+                    position: relative;
+                    width: 640px;
+                    margin: 0 auto;
+                    .desc{
+                        p{
+                            font-size: 16px;
+                            color: $color-fontgray;
+                            span{
+                                margin-left: 10px;
+                                color: #fff;
+                            }
+                            button {
+                                display: inline-block;
+                                margin-left: 8px;
+                                width: 100px;
+                                height: 24px;
+                                transition: all .1s ease-in;
+                                cursor: pointer;
+                                border: none;
+                                outline: none;
+                                font-family: "Noto Sans KR";
+                                color: #fff;
+                                i {
+                                    margin-right: 3px;
+                                }
+                                &.download{
+                                    background-color: $color-angry;
+                                    &:hover{
+                                        background-color: #ccc;
+                                    }
+                                }
+                            }
+                        }                        
+                    }
+                    .view{
+                        position: relative;
+                        #reFaceVideo{
+                            display: inline-block;
+                            width: 640px;
+                            height: 480px;
+                            background-color: $color-linegray;
+                        }
+                    }                    
+                }
+            }
+            .right{
+                flex: 1;
+                .device{
+                    position: relative;
+                    width: 640px;
+                    margin: 0 auto;
+                    .desc{
+                        p{
+                            font-size: 16px;
+                            color: $color-fontgray;
+                            span{
+                                margin-left: 10px;
+                                color: #fff;
+                            }
+                        }
+                    }
+                    .view{
+                        position: relative;
+                        width: 640px;
+                        height: 480px;
+                        #reScreenVideo{
+                            display: inline-block;
+                            width: 640px;
+                            height: 480px;
+                            background-color: $color-linegray;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
