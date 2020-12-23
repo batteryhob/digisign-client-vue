@@ -891,8 +891,8 @@ export default {
       this.$data.emotionChart = myChart;
 
       //클라이언트Url
-      this.$data.clientUrl = `https://${window.location.host}/digisign/client/${this.$data.uuid}`;
-
+      //this.$data.clientUrl = `https://${window.location.host}/digisign/client/${this.$data.uuid}`;
+      this.$data.clientUrl = `http://${window.location.host}/digisign/client/${this.$data.uuid}`;
   },
   beforeDestroy(){
 

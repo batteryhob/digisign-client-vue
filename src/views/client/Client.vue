@@ -381,7 +381,8 @@ export default {
   },
   computed: {
     nxsn(){
-      return this.$store.getters.nxsn;
+      return '20053298'
+      //return this.$store.getters.nxsn;
     }
   },
   mounted(){

@@ -7,8 +7,8 @@
         <span class="new"></span>
       </div>
       <div class="onoff" @click="minimizeOnoff()">
-        <i class="fas fa-window-minimize" v-if="minimize"></i>
-        <i class="far fa-window-maximize" v-if="!minimize"></i>
+        <i class="fas fa-window-minimize" v-if="!minimize"></i>
+        <i class="far fa-window-maximize" v-if="minimize"></i>
       </div>
     </div>
     <div class="message" id="message">
